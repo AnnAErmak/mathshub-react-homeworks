@@ -1,18 +1,11 @@
-import React from 'react';
-import './App.css';
-import ExpenseItem from './components/ExpenseItem';
+import React from "react";
+import Profile from "./components/Profile";
+import './App.css'
 
-function App() {
-  return (
-    <div>
-      <h2>Мои финансы</h2>
-      <ExpenseItem />
-      <ExpenseItem />
-      <ExpenseItem />
-      <ExpenseItem />
-      <ExpenseItem />
-    </div>
-  );
+export default function App() {
+    return (
+        <div className='app'>
+            <Profile/>
+        </div>
+    );
 }
-
-export default App;
