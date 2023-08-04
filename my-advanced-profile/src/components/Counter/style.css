@@ -1,0 +1,25 @@
+.counter-wrapper{
+    min-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-wrapper{
+    margin-top: 15px;
+    display: flex;
+    gap: 30px;
+}
+button {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    background-color: beige;
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+}
+button:hover {
+    background-color: rgb(240, 240, 155);
+}
