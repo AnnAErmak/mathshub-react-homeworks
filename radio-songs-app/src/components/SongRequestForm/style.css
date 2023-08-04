@@ -1,0 +1,29 @@
+.song-request-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.song-request-form input,
+.song-request-form select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex-grow: 1; /* Make the input fields take up the available space */
+}
+
+.song-request-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.song-request-form button:hover {
+    background-color: #0056b3;
+}
