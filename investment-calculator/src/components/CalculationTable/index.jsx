@@ -1,7 +1,7 @@
 import React from "react";
 import './style.css';
 
-function CalculationTable ({calculations}){
+function CalculationTable({calculations}) {
     console.log(calculations)
     return (
         <table className='result'>
@@ -15,13 +15,18 @@ function CalculationTable ({calculations}){
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>2023</td>
-                <td>$ 11 700</td>
-                <td>$ 500</td>
-                <td>$ 500</td>
-                <td>$ 11 200</td>
-            </tr>
+            {calculations.map(item => item.map((el, idx) => (
+                    <tr key={idx}>
+                        <td>{new Date().getFullYear() + el.year}</td>
+                        <td>$ {el.savingsEndOfYear.toFixed(2)}</td>
+                        <td>$ {el.yearlyInterest.toFixed(2)}</td>
+                        <td>$ {el.totalContributed.toFixed(2)}</td>
+                        <td>$ {el.yearlyContribution.toFixed(2)}</td>
+                    </tr>
+                ))
+
+            )
+            }
             </tbody>
         </table>
     )

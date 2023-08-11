@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import Header from "./components/Header";
 import FormCalculation from "./components/FormCalculation";
 import CalculationTable from "./components/CalculationTable";
+import './App.css'
 
 function App() {
 

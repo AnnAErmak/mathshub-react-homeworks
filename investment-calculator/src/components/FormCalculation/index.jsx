@@ -56,6 +56,7 @@ function FormCalculation({addCalculation}) {
                 message={error.message}
                 onClose={errorHandler}
             />}
+
             <form className='form' onSubmit={addInvestmentHandler} onReset={resetForm}>
                 <div className='input-group'>
                     <p>
