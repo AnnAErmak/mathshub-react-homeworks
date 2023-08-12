@@ -32,12 +32,14 @@ function Home() {
                 ? {...todo, isCompleted: !todo.isCompleted}
                 : {...todo}))
     }
-
+    const deleteTodoHandler = (id) => {
+        setTodos(todos.filter((todo) => todo.id !== id))
+    }
 
     return (
         <Card className='home'>
             <TodoForm addTodo={addTodoHandler}/>
-            <TodoList todos={todos} toggleTodo={toggleTodoHandler}/>
+            <TodoList todos={todos} toggleTodo={toggleTodoHandler} deleteTodo={deleteTodoHandler}/>
         </Card>
     );
 }

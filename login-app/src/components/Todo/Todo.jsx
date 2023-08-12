@@ -1,15 +1,18 @@
 import React from 'react';
+import {AiOutlineClose} from 'react-icons/ai';
 import './Todo.css';
 
 
-function Todo({todo, toggleTodo}) {
+function Todo({todo, toggleTodo, deleteTodo}) {
     return (
-        // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
         <div
             className={` todo ${todo.isCompleted ? 'completedTodo' : ''}`}
-            onClick={() => toggleTodo(todo.id)            }
         >
-            <div className="todo-text">{todo.text}</div>
+            {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
+            <div className="todo-text" onClick={() => toggleTodo(todo.id)}>{todo.text}</div>
+            <AiOutlineClose className='deleteIcon' onClick={() => {
+                deleteTodo(todo.id)
+            }}/>
         </div>
     );
 }
