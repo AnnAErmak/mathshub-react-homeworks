@@ -12,7 +12,7 @@ function Home() {
         let storageTodos
         if (localStorage.getItem('todos'))
             storageTodos = JSON.parse(localStorage.getItem('todos'))
-            setTodos(prevTodos => [...storageTodos, ...prevTodos]);
+        setTodos(prevTodos => [...storageTodos, ...prevTodos]);
     }, [])
 
     useEffect(() => {
@@ -25,12 +25,12 @@ function Home() {
             isCompleted: false,
             id: Math.random(),
         }
-        setTodos(prevTodos =>[newTodo, ...prevTodos])
+        setTodos(prevTodos => [newTodo, ...prevTodos])
     }
     const toggleTodoHandler = (id) => {
         setTodos(todos.map(todo => todo.id === id
-                ? {...todo, isCompleted: !todo.isCompleted}
-                : {...todo}))
+            ? {...todo, isCompleted: !todo.isCompleted}
+            : {...todo}))
     }
     const deleteTodoHandler = (id) => {
         setTodos(todos.filter((todo) => todo.id !== id))

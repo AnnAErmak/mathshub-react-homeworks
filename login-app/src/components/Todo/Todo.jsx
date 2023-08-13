@@ -10,9 +10,7 @@ function Todo({todo, toggleTodo, deleteTodo}) {
         >
             {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
             <div className="todo-text" onClick={() => toggleTodo(todo.id)}>{todo.text}</div>
-            <AiOutlineClose className='deleteIcon' onClick={() => {
-                deleteTodo(todo.id)
-            }}/>
+            <AiOutlineClose className='deleteIcon' onClick={() => { deleteTodo(todo.id)}}/>
         </div>
     );
 }
