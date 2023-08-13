@@ -14,34 +14,22 @@ function Login({ onLogin }) {
 
   useEffect(() => {
     const timerId = setTimeout(() => {
-      console.log('Проверяем форму!');
       setFormIsValid(
         enteredEmail.includes('@') && enteredPassword.trim().length > 6
       );
     }, 500);
 
     return () => {
-      console.log('Чистим таймер!');
       clearTimeout(timerId);
     };
   }, [enteredEmail, enteredPassword]);
 
   const emailChangeHandler = (event) => {
-    // console.log('emailChangeHadler работает!');
     setEnteredEmail(event.target.value);
-
-    // setFormIsValid(
-    //   event.target.value.includes('@') && enteredPassword.trim().length > 6
-    // );
   };
 
   const passwordChangeHandler = (event) => {
-    // console.log('passwordChangeHandler работает!');
     setEnteredPassword(event.target.value);
-
-    // setFormIsValid(
-    //   event.target.value.trim().length > 6 && enteredEmail.includes('@')
-    // );
   };
 
   const validateEmailHandler = () => {

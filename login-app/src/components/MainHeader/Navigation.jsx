@@ -1,6 +1,5 @@
 /* eslint-disable react/button-has-type */
 import React, { useContext } from 'react';
-
 import './Navigation.css';
 import AuthContext from '../../context/auth-context';
 import ThemeToggle from "../ThemeToggle/ThemeToggle";

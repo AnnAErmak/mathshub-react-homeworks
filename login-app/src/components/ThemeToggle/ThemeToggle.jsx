@@ -2,11 +2,10 @@ import React, {useContext} from "react";
 import "./ThemeToggle.css"
 import ThemeContext from "../../context/theme-context";
 
-
 function ThemeToggle() {
 
     const dataThemeContext = useContext(ThemeContext)
-console.log(dataThemeContext.isThemeLight)
+
     return (
         <div>
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
@@ -17,7 +16,6 @@ console.log(dataThemeContext.isThemeLight)
                 <span className="slider round"/>
             </label>
         </div>
-
     )
 }
 

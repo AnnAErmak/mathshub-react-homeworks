@@ -21,10 +21,6 @@ function App() {
         }
     }, []);
 
-    // useEffect(() => {
-    //     localStorage.setItem('isThemeLight', theme.toString())
-    // }, [theme])
-
     const loginHandler = (email, password) => {
         // Тут мы должны проверять логин и пароль
         // Но это всего лишь демо

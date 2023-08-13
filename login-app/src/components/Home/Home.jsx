@@ -1,11 +1,9 @@
 import React, {useEffect, useState, useContext} from 'react';
-
 import Card from '../UI/Card/Card';
 import './Home.css';
 import TodoForm from "../Todo/TodoForm";
 import TodoList from "../Todo/TodoList";
 import ThemeContext from "../../context/theme-context";
-
 
 function Home() {
     const [todos, setTodos] = useState([])
@@ -20,7 +18,6 @@ function Home() {
         if (localStorage.getItem('isThemeLight') === 'true') {
             contextData.onChangeTheme(true)
         }
-
     }, [])
 
     useEffect(() => {

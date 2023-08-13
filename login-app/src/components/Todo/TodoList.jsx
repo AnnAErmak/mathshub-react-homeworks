@@ -4,7 +4,7 @@ import "./TodoList.css";
 import TodoFilter from "./TodoFilter";
 
 
-function TodoList ({todos, toggleTodo, deleteTodo}){
+function TodoList({todos, toggleTodo, deleteTodo}) {
     const [filtered, setFiltered] = useState(todos)
 
     useEffect(() => {
@@ -12,7 +12,7 @@ function TodoList ({todos, toggleTodo, deleteTodo}){
     }, [todos])
 
     const changeFilterHandler = (value) => {
-        switch (value){
+        switch (value) {
             case 'completed':
                 setFiltered([...todos].filter(todo => todo.isCompleted))
                 break
@@ -30,7 +30,10 @@ function TodoList ({todos, toggleTodo, deleteTodo}){
             <div className="todoListContainer">
                 {!filtered.length
                     ? <h2>Нет ни одной задачи</h2>
-                    : filtered.map((todo) => <Todo key = {todo.id} todo ={todo} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>)
+                    : filtered.map((todo) => <Todo key={todo.id} todo={todo}
+                                                   toggleTodo={toggleTodo}
+                                                   deleteTodo={deleteTodo}
+                    />)
                 }
             </div>
         </>
