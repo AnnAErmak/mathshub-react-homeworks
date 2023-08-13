@@ -1,0 +1,40 @@
+.todo {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 15px 0;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border: 2px solid #4f005f;
+    color: #112d49;
+    background-color: #fbfef9;
+    transition: background 0.8s ease-in-out;
+}
+
+.todo.dark{
+    background: #112d49;
+    box-shadow: 0 2px 8px rgba(256, 256, 256, 0.26);
+    border: 2px solid #fbfef9;
+    color: #fbfef9;
+    transition: background 0.8s ease-in-out;
+}
+
+.todo-text {
+    width: 100%;
+    text-align: left;
+}
+.completedTodo{
+    text-decoration: line-through;
+}
+.deleteIcon {
+    cursor: pointer;
+    padding: 0 7px;
+    font-size: 2.15rem;
+    transition: transform 0.3s;
+}
+.deleteIcon:hover {
+    cursor: pointer;
+    transform: scale(1.3);
+    color: red;
+}

@@ -1,0 +1,40 @@
+.todo-filter-wrapper{
+    position: relative;
+    margin: 45px auto;
+    border: 2px solid #4f005f;
+    padding: 20px 20px;
+    border-radius: 5px;
+}
+
+.todo-filter-wrapper span{
+    position: absolute;
+    top: -15px;
+    left: 5%;
+    font-size: 1.5rem;
+    background: white;
+    padding: 0 10px;
+}
+.todo-filter-wrapper select{
+    width: 100%;
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: 1px solid #4f005f;
+    background: #fbfef9;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #112d49;
+}
+
+.todo-filter-wrapper span.dark{
+    background: #112d49;
+    box-shadow: 0 2px 8px rgba(256, 256, 256, 0.26);
+    border: 2px solid #fbfef9;
+    color: #fbfef9;
+    transition: background 0.8s ease-in-out;
+}
+.todo-filter-wrapper.dark{
+    box-shadow: 0 2px 8px rgba(256, 256, 256, 0.26);
+    border: 2px solid #fbfef9;
+    transition: background 0.8s ease-in-out;
+}
