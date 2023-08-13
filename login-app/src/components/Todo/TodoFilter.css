@@ -25,3 +25,16 @@
     text-align: center;
     color: #112d49;
 }
+
+.todo-filter-wrapper span.dark{
+    background: #112d49;
+    box-shadow: 0 2px 8px rgba(256, 256, 256, 0.26);
+    border: 2px solid #fbfef9;
+    color: #fbfef9;
+    transition: background 0.8s ease-in-out;
+}
+.todo-filter-wrapper.dark{
+    box-shadow: 0 2px 8px rgba(256, 256, 256, 0.26);
+    border: 2px solid #fbfef9;
+    transition: background 0.8s ease-in-out;
+}

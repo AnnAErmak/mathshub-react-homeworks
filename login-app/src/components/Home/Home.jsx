@@ -1,23 +1,35 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 
 import Card from '../UI/Card/Card';
 import './Home.css';
 import TodoForm from "../Todo/TodoForm";
 import TodoList from "../Todo/TodoList";
+import ThemeContext from "../../context/theme-context";
+
 
 function Home() {
     const [todos, setTodos] = useState([])
+    const contextData = useContext(ThemeContext)
 
     useEffect(() => {
         let storageTodos
-        if (localStorage.getItem('todos'))
+        if (localStorage.getItem('todos') !== null)
             storageTodos = JSON.parse(localStorage.getItem('todos'))
         setTodos(prevTodos => [...storageTodos, ...prevTodos]);
+
+        if (localStorage.getItem('isThemeLight') === 'true') {
+            contextData.onChangeTheme(true)
+        }
+
     }, [])
 
     useEffect(() => {
         localStorage.setItem('todos', JSON.stringify(todos));
     }, [todos])
+
+    useEffect(() => {
+        localStorage.setItem('isThemeLight', contextData.isThemeLight.toString())
+    }, [contextData.isThemeLight])
 
     const addTodoHandler = (text) => {
         const newTodo = {
