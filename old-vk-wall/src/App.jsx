@@ -59,6 +59,26 @@ function App() {
 
     }
 
+    const addLikeHandler = async (id) => {
+
+        try {
+            const post = posts.filter(item => item.id === id)
+            const likeCount = post[0].likeCount + 1
+
+            await fetch(`https://old-vk-wall-default-rtdb.europe-west1.firebasedatabase.app/posts/${id}.json`, {
+                method: 'PATCH',
+                body: JSON.stringify({
+                    likeCount,
+                }),
+                headers: {
+                    'Content-type': 'application/json',
+                },
+            })
+            fetchPostsHandler()
+        } catch (err) {
+            setError(err.message)
+        }
+    }
 
     useEffect(() => {
         fetchPostsHandler()
@@ -87,7 +107,8 @@ function App() {
                         </div>
                         <div className={styles.LikeWrapper}>
                             <p>Мне нравиться</p>
-                            {post.likeCount}<AiFillHeart className={styles}/>
+                            {post.likeCount}<AiFillHeart onClick={() => addLikeHandler(post.id)}
+                                                         className={styles.iconLike}/>
                         </div>
                     </div>
                 ))}
