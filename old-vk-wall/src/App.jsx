@@ -1,39 +1,47 @@
-import {AiFillHeart} from 'react-icons/ai';
 import React, {useEffect, useState} from "react";
 import styles from './App.module.css';
+import FormMessage from "./components/Form-message";
+import Post from "./components/Post/index.jsx";
 
 function App() {
     const [posts, setPosts] = useState([])
-    const [textPost, setTextPost] = useState('')
+    const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null)
 
-    const changeTextPostHandler = (text) => {
-        setTextPost(text)
-    }
     const fetchPostsHandler = async () => {
-        const response = await fetch('https://old-vk-wall-default-rtdb.europe-west1.firebasedatabase.app/posts.json')
-        const data = await response.json()
+        setIsLoading(true);
+        setError(null);
 
-        const loadingPosts = []
+        try {
+            const response = await fetch('https://old-vk-wall-default-rtdb.europe-west1.firebasedatabase.app/posts.json')
 
-        Object.keys(data).forEach(key => {
-            loadingPosts.push({
-                id: key,
-                name: data[key].name,
-                date: data[key].date,
-                likeCount: data[key].likeCount,
-                avatar: data[key].avatar,
-                text: data[key].text,
+            if (!response.ok) {
+                throw new Error('Что-то пошло не так!');
+            }
+
+            const data = await response.json()
+
+            const loadingPosts = []
+
+            Object.keys(data).forEach(key => {
+                loadingPosts.push({
+                    id: key,
+                    name: data[key].name,
+                    date: data[key].date,
+                    likeCount: data[key].likeCount,
+                    avatar: data[key].avatar,
+                    text: data[key].text,
+                })
+                setPosts(loadingPosts)
             })
-            setPosts(loadingPosts)
-        })
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setIsLoading(false);
+        }
     }
 
-    const addPostHandler = async () => {
-
-        // const respons = await fetch('https://api.dicebear.com/6.x/icons/svg?')
-        // const data = await respons.blob()
-        // console.log(data)
+    const addPostHandler = async (textPost) => {
         if (textPost.trim() === '') return
         try {
             await fetch('https://old-vk-wall-default-rtdb.europe-west1.firebasedatabase.app/posts.json',
@@ -53,10 +61,8 @@ function App() {
         } catch (err) {
             setError(err.message)
         } finally {
-            setTextPost('')
             fetchPostsHandler()
         }
-
     }
 
     const addLikeHandler = async (id) => {
@@ -83,39 +89,32 @@ function App() {
     useEffect(() => {
         fetchPostsHandler()
     }, [])
+
+    // let content = <p>Нет ни одного поста. Будьте первым!</p>;
+
+    // if (posts.length > 0) {
+    //     content = <input/>;
+    // }
+
+    // if (error) {
+    //     content = <p>{error}</p>;
+    // }
+    //
+    // if (isLoading) {
+    //     content = <p>Загрузка...</p>;
+    // }
+
     return (
         <>
-            <div className={styles.formMessageWrapper}>
-                <input onChange={(e) => changeTextPostHandler(e.target.value)} value={textPost}
-                       placeholder="Введите Ваше сообщение"/>
-                <div>
-                    <button className={styles.button} type="button"
-                            onClick={addPostHandler}>Отправить
-                    </button>
-                </div>
-            </div>
-            <div className={styles.postsWrapper}>
-                {posts.map(post => (
-                    <div key={post.id} className={styles.postCard}>
-                        <div className={styles.avatarWrapper}>
-                            <img alt='avatar' src={post.avatar}/>
-                        </div>
-                        <div className={styles.messageWrapper}>
-                            <p className={styles.nickName}>{post.name}</p>
-                            <p className={styles.messagePost}> {post.text}</p>
-                            <time>{post.date}</time>
-                        </div>
-                        <div className={styles.LikeWrapper}>
-                            <p>Мне нравиться</p>
-                            {post.likeCount}<AiFillHeart onClick={() => addLikeHandler(post.id)}
-                                                         className={styles.iconLike}/>
-                        </div>
-                    </div>
-                ))}
+            <FormMessage onPostHandler={addPostHandler}/>
 
+            <div className={styles.postsWrapper}>
+                {/* {content} */}
+                {posts.map(post => (
+                    <Post key={post.id} addLikeHandler={addLikeHandler} post={post}/>
+                ))}
             </div>
         </>
-
     )
 }
 

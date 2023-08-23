@@ -1,0 +1,40 @@
+.formMessageWrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid rgb(181, 196, 207, 0.5);
+    border-radius: 10px;
+}
+
+.formMessage {
+    width: 90%;
+    height: 100px;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    color: rgb(118, 118, 118);
+}
+
+.formMessage::placeholder {
+    font-size: 1.5rem;
+}
+
+.formMessage:focus {
+    outline: none !important;
+}
+
+.actionWrapper {
+    background: rgb(181, 196, 207, 0.2);
+    padding: 15px;
+    border-radius: 0 0 10px 10px;
+}
+
+.button {
+    cursor: pointer;
+    background: rgb(45, 105, 166, 0.8);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    padding: 10px;
+}

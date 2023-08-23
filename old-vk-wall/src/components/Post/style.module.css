@@ -1,0 +1,62 @@
+.postCard {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid rgb(181, 196, 207, 0.5);
+}
+
+.avatarWrapper {
+
+}
+
+.messageWrapper {
+    width: 100%;
+    flex-shrink: 1;
+}
+
+.nickName {
+    color: #2d69a6;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.messagePost {
+    font-size: 1.4rem;
+}
+
+time {
+    font-size: 1.2rem;
+    color: rgb(181, 196, 207);
+}
+
+img {
+    width: 60px;
+    height: 60px;
+}
+
+.LikeWrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-basis: 300px;
+    justify-content: flex-end;
+}
+
+.LikeWrapper p {
+    display: flex;
+    align-items: center;
+    color: rgb(45, 105, 166, 0.6);
+    font-size: 1.2rem;
+    height: 24px;
+}
+
+.iconLike {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.iconLike.active {
+    color: red;
+}
