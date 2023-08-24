@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styles from './App.module.css';
 import FormMessage from "./components/Form-message";
-import Post from "./components/Post/index.jsx";
+import Post from "./components/Post";
 
 function App() {
     const [posts, setPosts] = useState([])
@@ -32,8 +32,9 @@ function App() {
                     avatar: data[key].avatar,
                     text: data[key].text,
                 })
-                setPosts(loadingPosts)
             })
+            setPosts(loadingPosts)
+
         } catch (err) {
             setError(err.message);
         } finally {
@@ -90,29 +91,49 @@ function App() {
         fetchPostsHandler()
     }, [])
 
-    // let content = <p>Нет ни одного поста. Будьте первым!</p>;
+    let content = <p>Нет ни одного поста. Будьте первым!</p>;
 
-    // if (posts.length > 0) {
-    //     content = <input/>;
-    // }
+    if (posts.length > 0) {
+        content = posts.map(post => (
+            <Post key={post.id} addLikeHandler={addLikeHandler} post={post}/>
+        ))
+    }
 
-    // if (error) {
-    //     content = <p>{error}</p>;
-    // }
-    //
-    // if (isLoading) {
-    //     content = <p>Загрузка...</p>;
-    // }
+    if (error) {
+        content = <p>{error}</p>;
+    }
+
+    if (isLoading) {
+        content = <p>Загрузка...</p>;
+    }
 
     return (
         <>
+            <header>
+                <div><img className={styles.logo} alt="avatar" src='../public/assets/Vkontakte_Logo_2006.svg'/></div>
+                <div className={styles.menuWrapper}>
+                    <ul className={styles.menu}>
+                        <li className={styles.menuItem}>Вход</li>
+                        <li className={styles.menuItem}>Регистрация</li>
+                        <li className={styles.menuItem}>Помощь</li>
+                    </ul>
+                </div>
+            </header>
+            <section className={styles.sidebar}>
+                <form>
+                    <label name="email"> Email:</label>
+                    <input id="email"/>
+                    <label name="password"> Пароль:</label>
+                    <input id="password"/>
+                    <div className={styles.actionWrapper}>
+                        <button>Вход</button>
+                        <button>Регистрация</button>
+                    </div>
+                </form>
+            </section>
             <FormMessage onPostHandler={addPostHandler}/>
-
             <div className={styles.postsWrapper}>
-                {/* {content} */}
-                {posts.map(post => (
-                    <Post key={post.id} addLikeHandler={addLikeHandler} post={post}/>
-                ))}
+                {content}
             </div>
         </>
     )

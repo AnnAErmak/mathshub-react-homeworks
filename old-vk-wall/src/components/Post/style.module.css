@@ -6,10 +6,6 @@
     border-top: 1px solid rgb(181, 196, 207, 0.5);
 }
 
-.avatarWrapper {
-
-}
-
 .messageWrapper {
     width: 100%;
     flex-shrink: 1;
@@ -22,6 +18,7 @@
 }
 
 .messagePost {
+    padding: 5px 0 10px 5px;
     font-size: 1.4rem;
 }
 
