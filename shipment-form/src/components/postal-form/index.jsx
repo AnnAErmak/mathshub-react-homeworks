@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css'
 
 function PostalForm() {
 
@@ -7,32 +8,43 @@ function PostalForm() {
 
     }
 
-    return (<form onSubmit={onSubmitHandler}>
-        <div className='sender-wrapper'>
+    return (<form className="postal-form" onSubmit={onSubmitHandler}>
+        <h2>Форма почтового отправления</h2>
+        <div className='wrapper'>
             <label>Отправитель</label>
-            <input type='text' placeholder='Имя'/>
-            <input type='tel' placeholder='Телефон'/>
-            <input type='text' placeholder='Адрес'/>
+            <div className="input-wrapper">
+                <input type='text' placeholder='Имя'/>
+                <input type='tel' placeholder='Телефон'/>
+                <input type='text' placeholder='Адрес'/>
+            </div>
         </div>
-        <div className='addressee-wrapper'>
+        <div className='wrapper'>
             <label>Получатель</label>
-            <input type='text' placeholder='Имя'/>
-            <input type='tel' placeholder='Телефон'/>
-            <input type='text' placeholder='Адрес'/>
+            <div className="input-wrapper">
+                <input type='text' placeholder='Имя'/>
+                <input type='tel' placeholder='Телефон'/>
+                <input type='text' placeholder='Адрес'/>
+            </div>
         </div>
-        <div className='departure-type-wrapper'>
+        <div className='wrapper'>
             <label htmlFor="departure">Тип отправления</label>
             <select id="departure">
-                <option value='Поп'>Поп</option>
-                <option value='Рок'>Рок</option>
-                <option value='Джаз'>Джаз</option>
+                <option value='Поп'>Обычное</option>
+                <option value='Рок'>Заказное</option>
+                <option value='Джаз'>Срочное</option>
             </select>
         </div>
-        <input type="number" placeholder="Вес отправления"/>
-        <div className="dimensions-wrapper">
-            <input type="number" placeholder="Длина"/>
-            <input type="number" placeholder="Ширина"/>
-            <input type="number" placeholder="Высота"/>
+        <div className="wrapper">
+            <label>Вес отправления (кг)</label>
+            <input className="package-weight" type="number" placeholder="Вес отправления"/>
+        </div>
+        <div className="wrapper">
+            <label>Габариты (см)</label>
+            <div className="input-wrapper">
+                <input type="number" placeholder="Длина"/>
+                <input type="number" placeholder="Ширина"/>
+                <input type="number" placeholder="Высота"/>
+            </div>
         </div>
         <label> Страхование
             <input type="checkbox"/>
