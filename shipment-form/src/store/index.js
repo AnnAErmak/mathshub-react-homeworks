@@ -1,6 +1,8 @@
 import {createStore} from "redux";
 
-const initialState = {}
+const initialState = {
+    packageList: []
+}
 
 const postalItemsReducer = (state = initialState, action) => state
 

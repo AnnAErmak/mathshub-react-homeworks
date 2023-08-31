@@ -47,5 +47,9 @@ input[type="checkbox"] {
     margin-left: 10px;
 }
 
+p {
+    display: block;
+    color: red;
+}
 
 
