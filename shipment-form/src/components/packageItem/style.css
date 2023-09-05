@@ -1,0 +1,18 @@
+.package-item-wrapper {
+    margin: 0 auto;
+    max-width: 700px;
+    text-align: left;
+
+}
+
+.package-item-wrapper p span {
+    color: white;
+    display: block;
+}
+
+.package-item-wrapper p {
+    display: flex;
+    font-size: 1.5rem;
+    gap: 5px;
+    color: white;
+}

@@ -50,6 +50,7 @@ input[type="checkbox"] {
 p {
     display: block;
     color: red;
+    text-align: center;
 }
 
 
